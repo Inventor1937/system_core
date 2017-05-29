@@ -19,6 +19,14 @@ LOCAL_STATIC_LIBRARIES := libutils
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
+LOCAL_SRC_FILES := healthd_board_msm.cpp
+LOCAL_MODULE := libhealthd.qcom
+LOCAL_CFLAGS := -Werror
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
+include $(BUILD_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
 ifeq ($(strip $(BOARD_CHARGER_ENABLE_SUSPEND)),true)
 LOCAL_CFLAGS += -DCHARGER_ENABLE_SUSPEND
 LOCAL_SHARED_LIBRARIES += libsuspend
